@@ -2,6 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import contactbg from '../Images/contactbg.png'
+import Swal from 'sweetalert2';
 
 // --- Styled Components for the entire page ---
 
@@ -328,13 +329,62 @@ const ContactDetail = styled.div`
 
 // --- React Component: ContactUsPage ---
 const ContactUsPage = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Here you would typically handle form submission, e.g., send data to a backend
-    console.log('Form submitted!');
-    // You can access form values like e.target.name.value, e.target.email.value etc.
-    alert('Thank you for your message! We will get back to you soon.'); // Using alert for demo, replace with custom modal
+
+
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const formData = {
+    name: e.target.name.value,
+    email: e.target.email.value,
+    phone: e.target.phone.value,
+    message: e.target.message.value,
   };
+
+  // Show loading modal
+  Swal.fire({
+    title: 'Sending...',
+    text: 'Please wait while we send your message.',
+    allowOutsideClick: false,
+    didOpen: () => {
+      Swal.showLoading();
+    },
+  });
+
+  try {
+    const response = await fetch('https://harvannatravelsandtour.com/api/contact_form_endpoint.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Message Sent!',
+        text: result.message || 'Thank you for reaching out. We’ll be in touch shortly.',
+      });
+      e.target.reset(); // Clear form after success
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops!',
+        text: result.error || 'Something went wrong. Please try again later.',
+      });
+    }
+  } catch (error) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Network Error',
+      text: 'Could not connect to the server. Please try again later.',
+    });
+  }
+};
+
 
   // Google Maps Embed URL for "4th Floor Brasas's Place, 69 Admiralty Way, Lekki Phase 1, Lagos"
   // You can generate this from Google Maps by searching the address, clicking Share, then Embed a map.
