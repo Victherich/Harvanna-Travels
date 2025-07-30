@@ -22,16 +22,16 @@ const HeroSectionContainer = styled.section`
   overflow: hidden; /* Ensures content stays within bounds */
 
   @media (max-width: 1024px) {
-    height: 350px;
+    // height: 350px;
   }
 
   @media (max-width: 768px) {
-    height: 300px;
+    // height: 300px;
     padding: 0 20px; /* Add horizontal padding */
   }
 
   @media (max-width: 480px) {
-    height: 250px;
+    // height: 250px;
     padding: 0 15px;
   }
 `;

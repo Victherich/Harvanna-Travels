@@ -45,13 +45,13 @@ const HeroSectionContainer = styled.div`
   }
 
   @media (max-width: 768px) {
-    height: 350px;
+    // height: 350px;
     justify-content: center; /* Center content on smaller screens */
     padding: 0 20px;
   }
 
   @media (max-width: 480px) {
-    height: 300px;
+    // height: 300px;
   }
 `;
 

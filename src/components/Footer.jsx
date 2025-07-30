@@ -2,6 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import logo from '../Images/logo.png'
+import { useNavigate } from 'react-router-dom';
 
 // Styled Components
 const FooterContainer = styled.footer`
@@ -73,6 +74,7 @@ const LinkList = styled.ul`
 const ListItem = styled.li`
   margin-bottom: 10px;
   font-size: 14px;
+  cursor:pointer;
 `;
 
 const StyledLink = styled.a`
@@ -142,6 +144,9 @@ const SettingsLink = styled.p`
 
 // React Component
 const Footer = () => {
+const navigate = useNavigate();
+
+
   return (
     <FooterContainer>
       <FooterContent>
@@ -160,20 +165,20 @@ const Footer = () => {
         <Section>
           <SectionTitle>Company</SectionTitle>
           <LinkList>
-            <ListItem><StyledLink href="#">About Us</StyledLink></ListItem>
-            <ListItem><StyledLink href="#">Services</StyledLink></ListItem>
-            <ListItem><StyledLink href="#">Affiliates</StyledLink></ListItem>
-            <ListItem><StyledLink href="#">Careers</StyledLink></ListItem>
-            <ListItem><StyledLink href="#">Reviews</StyledLink></ListItem>
+            <ListItem><StyledLink onClick={()=>navigate('/about')}>About Us</StyledLink></ListItem>
+            <ListItem><StyledLink onClick={()=>navigate('/services')}>Services</StyledLink></ListItem>
+            {/* <ListItem><StyledLink href="#">Affiliates</StyledLink></ListItem> */}
+            {/* <ListItem><StyledLink href="#">Careers</StyledLink></ListItem> */}
+            {/* <ListItem><StyledLink href="#">Reviews</StyledLink></ListItem> */}
           </LinkList>
         </Section>
 
         <Section>
           <SectionTitle>Support</SectionTitle>
           <LinkList>
-            <ListItem><StyledLink href="#">Contact Us</StyledLink></ListItem>
-            <ListItem><StyledLink href="#">Blog</StyledLink></ListItem>
-            <ListItem><StyledLink href="#">FAQ</StyledLink></ListItem>
+            <ListItem><StyledLink onClick={()=>navigate('/contactus')}>Contact Us</StyledLink></ListItem>
+            <ListItem><StyledLink onClick={()=>navigate('/blogs')}>Blog</StyledLink></ListItem>
+            <ListItem><StyledLink onClick={()=>navigate('/faq')}>FAQ</StyledLink></ListItem>
             <ListItem><StyledLink href="#">Terms Of Use</StyledLink></ListItem>
             <ListItem><StyledLink href="#">Privacy Policy</StyledLink></ListItem>
             <ListItem><StyledLink href="#">Flights</StyledLink></ListItem>

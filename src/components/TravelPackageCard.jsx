@@ -202,6 +202,10 @@ const ImageSection = styled.div`
   justify-content: flex-end; /* Push logo to top-right */
   padding: 15px; /* Padding for the logo */
 width:40%;
+
+@media(max-width:768px){
+  width:100%;
+}
   @media (max-width: 992px) {
     flex: 0 0 auto; /* No fixed width when stacked */
     // min-height: 350px; /* Adjust height for mobile */

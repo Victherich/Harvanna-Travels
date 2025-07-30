@@ -23,11 +23,18 @@ padding:20px;
 const Div1 = styled.div`
     width:70%;
     padding:10px;
+@media(max-width:768px){
+  width:100%;
+}
+
 `
 
 const Div2 = styled.div`
 width:30%;
 padding:20px;
+@media(max-width:768px){
+  display:none;
+}
 `
 
 const PlannedPackages = () => {

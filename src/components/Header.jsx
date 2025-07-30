@@ -271,7 +271,7 @@ const NavLinks = styled.ul`
   padding: 0;
   align-items: center;
 
-  @media (max-width: 768px) {
+  @media (max-width: 884px) {
     display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
     flex-direction: column;
     width: 100%;
@@ -281,6 +281,7 @@ const NavLinks = styled.ul`
     left: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    padding-left:20px;
   }
 `;
 
@@ -372,7 +373,7 @@ const HamburgerMenu = styled.div`
     border-radius: 2px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 884px) {
     display: flex;
   }
 `;
@@ -454,7 +455,7 @@ const Header = () => {
       </HamburgerMenu>
 
       <NavLinks isOpen={isNavOpen}>
-        <NavItem onClick={() => navigate('/')}>
+        <NavItem onClick={() => {navigate('/');setIsNavOpen(false)}}>
           <NavLink>HOME</NavLink>
         </NavItem>
         <NavItem>
@@ -467,15 +468,15 @@ const Header = () => {
             HOLIDAYS <DropdownArrow>&#9662;</DropdownArrow>
           </NavLink>
           <DropdownMenu>
-            <DropdownItem href="/plannedpackages">Planned Packages</DropdownItem>
-            <DropdownItem href="/requestholiday">Request Holiday</DropdownItem>
-            <DropdownItem href="/events">Events</DropdownItem>
+            <DropdownItem onClick={()=>{navigate('/plannedpackages'); setIsNavOpen(false)}}>Planned Packages</DropdownItem>
+            <DropdownItem onClick={()=>{navigate('/requestholiday');setIsNavOpen(false)}}>Request Holiday</DropdownItem>
+            <DropdownItem onClick={()=>{navigate('/events');setIsNavOpen(false)}}>Events</DropdownItem>
             {/* Add more holiday options as needed */}
           </DropdownMenu>
         </NavItem>
 
         {/* VISA SERVICES Dropdown */}
-        <NavItem>
+        {/* <NavItem>
           <NavLink href="#">
             VISA SERVICES <DropdownArrow>&#9662;</DropdownArrow>
           </NavLink>
@@ -486,17 +487,24 @@ const Header = () => {
             <DropdownItem href="/visaapplicationform">UK Visa</DropdownItem>
             <DropdownItem href="/visaapplicationform">Dubai Visa</DropdownItem>
             <DropdownItem href="/visaapplicationform">Visa Assessment</DropdownItem>
-            {/* Add more visa services as needed */}
+        
           </DropdownMenu>
+        </NavItem> */}
+
+
+         <NavItem>
+          <NavLink onClick={() => {navigate('/visaapplicationform');setIsNavOpen(false)}}>
+            VISA SERVICES
+          </NavLink>
         </NavItem>
 
-        <NavItem onClick={() => navigate('/services')}>
+        <NavItem onClick={() => {navigate('/services');setIsNavOpen(false)}}>
           <NavLink>HARVANNA SERVICES</NavLink>
         </NavItem>
-        <NavItem onClick={() => navigate('/contactus')}>
+        <NavItem onClick={() => {navigate('/contactus');setIsNavOpen(false)}}>
           <NavLink>CONTACT US</NavLink>
         </NavItem>
-        <NavItem onClick={() => navigate('/blogs')}>
+        <NavItem onClick={() => {navigate('/blogs');setIsNavOpen(false)}}>
           <NavLink>BLOG</NavLink>
         </NavItem>
       </NavLinks>

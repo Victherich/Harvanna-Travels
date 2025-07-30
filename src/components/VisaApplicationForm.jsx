@@ -15,7 +15,7 @@ const FormContainer = styled.div`
   color: #333;
 
   @media (max-width: 768px) {
-    margin: 20px auto;
+    margin: 100px auto;
     padding: 20px;
   }
 `;

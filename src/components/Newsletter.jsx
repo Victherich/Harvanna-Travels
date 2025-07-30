@@ -215,16 +215,16 @@ const NewsletterSection = styled.section`
   overflow: hidden; /* Ensure content stays within bounds */
 
   @media (max-width: 1024px) {
-    height: 280px;
+    // height: 280px;
   }
 
   @media (max-width: 768px) {
-    height: 250px;
+    // height: 250px;
     padding: 0 20px; /* Add horizontal padding */
   }
 
   @media (max-width: 480px) {
-    height: 220px;
+    // height: 220px;
     padding: 0 15px;
   }
 `;

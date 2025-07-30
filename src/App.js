@@ -13,6 +13,8 @@ import VisaApplicationForm from './components/VisaApplicationForm';
 import EventComponent from './components/EventComponent';
 import AppUpdate from './components/AppUpdate';
 import ScrollToTop from './components/ScrollToTop';
+import AboutUsPage from './components/AboutUs';
+import FAQPage from './components/Faq';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
    <ScrollToTop/>
    <Header/>
    <Routes>
+
+ {/* <Route path='/' element={<h1>hi</h1>}/> */}
     <Route path='/' element={<LandingPage/>}/>
     <Route path='/contactus' element={<ContactUsPage/>}/>
     <Route path='/services' element={<Services/>}/>
@@ -28,7 +32,9 @@ function App() {
     <Route path='/plannedpackages' element={<PlannedPackages/>}/>
     <Route path='/requestholiday' element={<CustomizedTourForm/>}/>
     <Route path='/visaapplicationform' element={<VisaApplicationForm/>}/>
-    <Route path='events' element={<EventComponent/>}/>
+    <Route path='/events' element={<EventComponent/>}/>
+    <Route path='/about' element={<AboutUsPage/>}/>
+    <Route path='/faq' element={<FAQPage/>}/>
    </Routes>
    <Footer/>
    </BrowserRouter>
