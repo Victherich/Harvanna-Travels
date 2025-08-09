@@ -386,10 +386,10 @@ const SummerHolidayCard = ({
 
       <DetailsAndPriceFlex> {/* New wrapper for details and price */}
         <DetailsWrapper>
-          <DetailItem>
-            <DetailIcon><i className="fas fa-map-marker-alt"></i></DetailIcon> {/* Font Awesome location icon */}
+          {/* <DetailItem>
+            <DetailIcon><i className="fas fa-map-marker-alt"></i></DetailIcon>
             <span>{location}</span>
-          </DetailItem>
+          </DetailItem> */}
           <DetailItem>
             <DetailIcon><i className="far fa-clock"></i></DetailIcon> {/* Font Awesome clock icon */}
             <span>{duration}</span>
@@ -399,7 +399,7 @@ const SummerHolidayCard = ({
         <PriceDisplay>{price}</PriceDisplay>
       </DetailsAndPriceFlex>
 
-      <DateDisplay>{dateRange}</DateDisplay>
+      {/* <DateDisplay>{dateRange}</DateDisplay> */}
 
       <LearnMoreButton onClick={()=>navigate(learnMoreLink)}>
         LEARN MORE <i className="fas fa-angle-double-right"></i> 
