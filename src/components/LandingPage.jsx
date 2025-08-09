@@ -7,6 +7,7 @@ import Partners from './Partners'
 import Newsletter from './Newsletter'
 import SecondQuarterDeals from './SecondQuarterDeals'
 import PopularToursSection from './PopularToursSection'
+import Gallery from './Gallery'
 
 const LandingPage = () => {
   return (
@@ -18,7 +19,9 @@ const LandingPage = () => {
       <CustomerTestimonial/>
       <BookingSection/>
       <Partners/>
+      <Gallery/>
       <Newsletter/>
+
       
     </div>
   )

@@ -227,10 +227,10 @@ h1
 
       <InfoBox>
         <Title>Harvanna Travels and Tour Ltds Services</Title>
-        <Description>
+        {/* <Description>
           Book cheap and affordable local and international flight deals
           only on the Harvanna Travels and Tour Ltd Website.
-        </Description>
+        </Description> */}
     
       </InfoBox>
 

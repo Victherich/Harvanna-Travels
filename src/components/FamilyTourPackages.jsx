@@ -232,9 +232,10 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import styled, { css, keyframes } from 'styled-components';
-import f1 from '../Images/f1.jpg';
+import f1 from '../Images2/h8.jpg';
 import f2 from '../Images/f2.jpg';
 import f3 from '../Images/f3.jpg';
+import { useNavigate } from 'react-router-dom';
 
 // Keyframe for a subtle slide-up animation
 const slideInUp = keyframes`
@@ -397,6 +398,7 @@ const SeeToursButton = styled.a`
   color: #0d286d; /* Dark blue text for button */
   text-decoration: none;
   font-size: 16px;
+  cursor:pointer;
   font-weight: bold;
   padding-bottom: 5px; /* Space for underline effect */
   border-bottom: 2px solid #0d286d; /* Underline effect */
@@ -514,6 +516,7 @@ const StyledImage = styled.img`
 // React Component
 const FamilyTourPackages = () => {
   const imageUrls = [f1, f2, f3];
+  const navigate = useNavigate();
 
   // Refs for elements to observe
   const sectionRef = useRef(null);
@@ -601,7 +604,7 @@ const FamilyTourPackages = () => {
           We have packages specially crafted for your family vacation needs. You can also request for a customized
           package that suites you.
         </Description>
-        <SeeToursButton ref={seeToursButtonRef} $isVisible={isSeeToursButtonVisible} href="#">
+        <SeeToursButton ref={seeToursButtonRef} $isVisible={isSeeToursButtonVisible} onClick={()=>navigate('/plannedpackages')}>
           SEE TOURS <i className="fas fa-arrow-right"></i>
         </SeeToursButton>
       </LeftContent>

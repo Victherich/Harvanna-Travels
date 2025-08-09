@@ -32,8 +32,8 @@ const HeroSection = styled.section`
   overflow: hidden; /* Ensures content stays within bounds */
 
   @media (max-width: 768px) {
-    padding: 60px 20px;
-    min-height: 250px;
+    padding: 100px 20px;
+    min-height: 300px;
   }
 `;
 

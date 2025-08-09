@@ -15,6 +15,9 @@ import AppUpdate from './components/AppUpdate';
 import ScrollToTop from './components/ScrollToTop';
 import AboutUsPage from './components/AboutUs';
 import FAQPage from './components/Faq';
+import HolidayDetailsPage from './components/HolidayDetailsPage';
+import VisaServiceDetails from './components/VisaServiceDetails';
+import VisaServicesPage from './components/VisaServicesPage';
 
 function App() {
   return (
@@ -35,6 +38,9 @@ function App() {
     <Route path='/events' element={<EventComponent/>}/>
     <Route path='/about' element={<AboutUsPage/>}/>
     <Route path='/faq' element={<FAQPage/>}/>
+    <Route path='/holidaydetailspage/:id' element={<HolidayDetailsPage/>}/>
+    <Route path='/visa-services/:id' element={<VisaServiceDetails/>}/>
+    <Route path='/visa-services' element={<VisaServicesPage/>}/>
    </Routes>
    <Footer/>
    </BrowserRouter>

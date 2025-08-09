@@ -132,8 +132,8 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import styled, { css, keyframes } from 'styled-components';
-import packages2 from '../Images/packages2.jpg';
-import packages3 from '../Images/packages3.jpg';
+import packages3 from '../Images2/harva Packages.jpg';
+import packages2 from '../Images2/harva Visa.jpg';
 
 // Keyframe for a subtle fade-in and slide-up animation
 const fadeInSlideUp = keyframes`
@@ -284,13 +284,13 @@ const ImageContainer = styled.div`
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    // object-fit: cover;
     border-radius: 8px; /* Apply border-radius to image as well */
   }
 
   @media (max-width: 768px) {
     max-width: 90%;
-    height: 300px; /* Adjust height for smaller screens */
+    // height: 300px; /* Adjust height for smaller screens */
   }
 `;
 

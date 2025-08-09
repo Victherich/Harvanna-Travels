@@ -170,6 +170,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import styled, { css, keyframes } from 'styled-components';
 import ns from '../Images/ns.png'
+import Swal from 'sweetalert2';
 
 // Keyframe for a subtle fade-in and slide-up animation
 const fadeInSlideUp = keyframes`
@@ -348,30 +349,180 @@ const SubscribeButton = styled.button`
   }
 `;
 
-// React Component
+// // React Component
+// const Newsletter = () => {
+//   // Refs for elements to observe
+//   const newsletterSectionRef = useRef(null); // Ref for the entire section
+//   const sectionTitleRef = useRef(null);
+//   const subtitleRef = useRef(null);
+//   const firstNameInputRef = useRef(null);
+//   const emailInputRef = useRef(null);
+//   const subscribeButtonRef = useRef(null);
+
+//   // State to control visibility of each element
+//   const [isSectionTitleVisible, setIsSectionTitleVisible] = useState(false);
+//   const [isSubtitleVisible, setIsSubtitleVisible] = useState(false);
+//   const [isFirstNameInputVisible, setIsFirstNameInputVisible] = useState(false);
+//   const [isEmailInputVisible, setIsEmailInputVisible] = useState(false);
+//   const [isSubscribeButtonVisible, setIsSubscribeButtonVisible] = useState(false);
+
+//   useEffect(() => {
+//     const observerOptions = {
+//       root: null, // relative to the viewport
+//       rootMargin: '0px',
+//       threshold: 0.3, // Trigger when 30% of the element is visible
+//     };
+
+//     const observer = new IntersectionObserver((entries) => {
+//       entries.forEach((entry) => {
+//         if (entry.target === sectionTitleRef.current) {
+//           setIsSectionTitleVisible(entry.isIntersecting);
+//         } else if (entry.target === subtitleRef.current) {
+//           setIsSubtitleVisible(entry.isIntersecting);
+//         } else if (entry.target === firstNameInputRef.current) {
+//           setIsFirstNameInputVisible(entry.isIntersecting);
+//         } else if (entry.target === emailInputRef.current) {
+//           setIsEmailInputVisible(entry.isIntersecting);
+//         } else if (entry.target === subscribeButtonRef.current) {
+//           setIsSubscribeButtonVisible(entry.isIntersecting);
+//         }
+//       });
+//     }, observerOptions);
+
+//     // Observe all relevant elements
+//     // We'll observe the main section and then its children for staggered animations
+//     if (newsletterSectionRef.current) observer.observe(newsletterSectionRef.current);
+//     if (sectionTitleRef.current) observer.observe(sectionTitleRef.current);
+//     if (subtitleRef.current) observer.observe(subtitleRef.current);
+//     if (firstNameInputRef.current) observer.observe(firstNameInputRef.current);
+//     if (emailInputRef.current) observer.observe(emailInputRef.current);
+//     if (subscribeButtonRef.current) observer.observe(subscribeButtonRef.current);
+
+
+//     // Cleanup observer on component unmount
+//     return () => {
+//       if (newsletterSectionRef.current) observer.unobserve(newsletterSectionRef.current);
+//       if (sectionTitleRef.current) observer.unobserve(sectionTitleRef.current);
+//       if (subtitleRef.current) observer.unobserve(subtitleRef.current);
+//       if (firstNameInputRef.current) observer.unobserve(firstNameInputRef.current);
+//       if (emailInputRef.current) observer.unobserve(emailInputRef.current);
+//       if (subscribeButtonRef.current) observer.unobserve(subscribeButtonRef.current);
+//     };
+//   }, []); // Empty dependency array means this effect runs once after initial render
+
+//   return (
+//     <NewsletterSection ref={newsletterSectionRef}>
+//       <Overlay />
+//       <ContentWrapper>
+//         <SectionTitle ref={sectionTitleRef} $isVisible={isSectionTitleVisible}>
+//           Subscribe To Newsletters
+//         </SectionTitle>
+//         <Subtitle ref={subtitleRef} $isVisible={isSubtitleVisible}>
+//           Sign up to our newsletter to get special updates.
+//         </Subtitle>
+//         <Form>
+//           {/* Apply transition-delay directly via style prop for input staggering */}
+//           <Input 
+//             type="text" 
+//             placeholder="First Name" 
+//             ref={firstNameInputRef} 
+//             $isVisible={isFirstNameInputVisible} 
+//             style={{ transitionDelay: '0.3s' }} 
+//           />
+//           <Input 
+//             type="email" 
+//             placeholder="Email Address" 
+//             ref={emailInputRef} 
+//             $isVisible={isEmailInputVisible} 
+//             style={{ transitionDelay: '0.4s' }} 
+//           />
+//           <SubscribeButton 
+//             type="submit" 
+//             ref={subscribeButtonRef} 
+//             $isVisible={isSubscribeButtonVisible} 
+//             style={{ transitionDelay: '0.5s' }} 
+//           >
+//             Subscribe
+//           </SubscribeButton>
+//         </Form>
+//       </ContentWrapper>
+//     </NewsletterSection>
+//   );
+// };
+
+// export default Newsletter;
+
+
+
+
+
 const Newsletter = () => {
-  // Refs for elements to observe
-  const newsletterSectionRef = useRef(null); // Ref for the entire section
+  const newsletterSectionRef = useRef(null);
   const sectionTitleRef = useRef(null);
   const subtitleRef = useRef(null);
   const firstNameInputRef = useRef(null);
   const emailInputRef = useRef(null);
   const subscribeButtonRef = useRef(null);
 
-  // State to control visibility of each element
   const [isSectionTitleVisible, setIsSectionTitleVisible] = useState(false);
   const [isSubtitleVisible, setIsSubtitleVisible] = useState(false);
   const [isFirstNameInputVisible, setIsFirstNameInputVisible] = useState(false);
   const [isEmailInputVisible, setIsEmailInputVisible] = useState(false);
   const [isSubscribeButtonVisible, setIsSubscribeButtonVisible] = useState(false);
 
-  useEffect(() => {
-    const observerOptions = {
-      root: null, // relative to the viewport
-      rootMargin: '0px',
-      threshold: 0.3, // Trigger when 30% of the element is visible
-    };
+  const [formData, setFormData] = useState({ firstName: '', email: '' });
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    Swal.fire({
+      title: 'Subscribing...',
+      text: 'Please wait while we add you to our newsletter.',
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
+
+    try {
+      const response = await fetch('https://harvannatravelsandtour.com/api/newsletter_endpoint.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Subscribed!',
+          text: result.message,
+        });
+        setFormData({ firstName: '', email: '' });
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: result.error,
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Network Error',
+        text: 'Unable to complete your subscription. Please try again later.',
+      });
+    }
+  };
+
+  useEffect(() => {
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.3 };
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.target === sectionTitleRef.current) {
@@ -388,8 +539,6 @@ const Newsletter = () => {
       });
     }, observerOptions);
 
-    // Observe all relevant elements
-    // We'll observe the main section and then its children for staggered animations
     if (newsletterSectionRef.current) observer.observe(newsletterSectionRef.current);
     if (sectionTitleRef.current) observer.observe(sectionTitleRef.current);
     if (subtitleRef.current) observer.observe(subtitleRef.current);
@@ -397,8 +546,6 @@ const Newsletter = () => {
     if (emailInputRef.current) observer.observe(emailInputRef.current);
     if (subscribeButtonRef.current) observer.observe(subscribeButtonRef.current);
 
-
-    // Cleanup observer on component unmount
     return () => {
       if (newsletterSectionRef.current) observer.unobserve(newsletterSectionRef.current);
       if (sectionTitleRef.current) observer.unobserve(sectionTitleRef.current);
@@ -407,7 +554,7 @@ const Newsletter = () => {
       if (emailInputRef.current) observer.unobserve(emailInputRef.current);
       if (subscribeButtonRef.current) observer.unobserve(subscribeButtonRef.current);
     };
-  }, []); // Empty dependency array means this effect runs once after initial render
+  }, []);
 
   return (
     <NewsletterSection ref={newsletterSectionRef}>
@@ -419,27 +566,34 @@ const Newsletter = () => {
         <Subtitle ref={subtitleRef} $isVisible={isSubtitleVisible}>
           Sign up to our newsletter to get special updates.
         </Subtitle>
-        <Form>
-          {/* Apply transition-delay directly via style prop for input staggering */}
-          <Input 
-            type="text" 
-            placeholder="First Name" 
-            ref={firstNameInputRef} 
-            $isVisible={isFirstNameInputVisible} 
-            style={{ transitionDelay: '0.3s' }} 
+        <Form onSubmit={handleSubmit}>
+          <Input
+            type="text"
+            name="firstName"
+            placeholder="First Name"
+            value={formData.firstName}
+            onChange={handleChange}
+            ref={firstNameInputRef}
+            $isVisible={isFirstNameInputVisible}
+            style={{ transitionDelay: '0.3s' }}
+            required
           />
-          <Input 
-            type="email" 
-            placeholder="Email Address" 
-            ref={emailInputRef} 
-            $isVisible={isEmailInputVisible} 
-            style={{ transitionDelay: '0.4s' }} 
+          <Input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            value={formData.email}
+            onChange={handleChange}
+            ref={emailInputRef}
+            $isVisible={isEmailInputVisible}
+            style={{ transitionDelay: '0.4s' }}
+            required
           />
-          <SubscribeButton 
-            type="submit" 
-            ref={subscribeButtonRef} 
-            $isVisible={isSubscribeButtonVisible} 
-            style={{ transitionDelay: '0.5s' }} 
+          <SubscribeButton
+            type="submit"
+            ref={subscribeButtonRef}
+            $isVisible={isSubscribeButtonVisible}
+            style={{ transitionDelay: '0.5s' }}
           >
             Subscribe
           </SubscribeButton>

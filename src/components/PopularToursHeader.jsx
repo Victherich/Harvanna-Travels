@@ -25,7 +25,7 @@ const OrangeLine = styled.div`
 const PopularToursHeader = () => {
   return (
     <Container>
-      <SectionTitle>Enquiry</SectionTitle>
+      {/* <SectionTitle>Enquiry</SectionTitle> */}
       <OrangeLine />
 
       <SectionTitle>Featured Tours</SectionTitle>

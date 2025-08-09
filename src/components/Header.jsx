@@ -219,7 +219,7 @@
 
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import logo from '../Images/logo.png'
+import logo from '../Images2/Harvanna Logo.jpg'
 import { useNavigate } from 'react-router-dom';
 
 // --- Styled Components ---
@@ -251,6 +251,7 @@ const NavbarContainer = styled.nav`
 const LogoContainer = styled.div`
   display: flex;
   align-items: center;
+  cursor:pointer;
 `;
 
 const LogoImage = styled.img`
@@ -443,7 +444,7 @@ const Header = () => {
 
   return (
     <NavbarContainer>
-      <LogoContainer>
+      <LogoContainer onClick={()=>navigate('/')}>
         <LogoImage src={logo} alt="Aspom Logo" />
         {/* <LogoText>Aspom</LogoText> */}
       </LogoContainer>
@@ -458,9 +459,9 @@ const Header = () => {
         <NavItem onClick={() => {navigate('/');setIsNavOpen(false)}}>
           <NavLink>HOME</NavLink>
         </NavItem>
-        <NavItem>
+        {/* <NavItem>
           <NavLink href="#">FLIGHTS</NavLink>
-        </NavItem>
+        </NavItem> */}
 
         {/* HOLIDAYS Dropdown */}
         <NavItem>
@@ -493,7 +494,7 @@ const Header = () => {
 
 
          <NavItem>
-          <NavLink onClick={() => {navigate('/visaapplicationform');setIsNavOpen(false)}}>
+          <NavLink onClick={() => {navigate('/visa-services');setIsNavOpen(false)}}>
             VISA SERVICES
           </NavLink>
         </NavItem>

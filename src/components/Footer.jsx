@@ -1,7 +1,8 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import logo from '../Images/logo.png'
+// import logo from '../Images2/logo2.png'
+import logo from '../Images2/harvanna logo 2.jpg';
 import { useNavigate } from 'react-router-dom';
 
 // Styled Components
@@ -52,6 +53,7 @@ const LogoContainer = styled.div`
 const Logo = styled.img`
   height: 50px; /* Adjust as needed */
   margin-right: 10px;
+  border-radius:10px;
 `;
 
 const LogoText = styled.span`
@@ -167,9 +169,10 @@ const navigate = useNavigate();
           <LinkList>
             <ListItem><StyledLink onClick={()=>navigate('/about')}>About Us</StyledLink></ListItem>
             <ListItem><StyledLink onClick={()=>navigate('/services')}>Services</StyledLink></ListItem>
-            {/* <ListItem><StyledLink href="#">Affiliates</StyledLink></ListItem> */}
-            {/* <ListItem><StyledLink href="#">Careers</StyledLink></ListItem> */}
-            {/* <ListItem><StyledLink href="#">Reviews</StyledLink></ListItem> */}
+            <ListItem><StyledLink onClick={()=>navigate('/visa-services')}>Visa Services</StyledLink></ListItem>
+            <ListItem><StyledLink onClick={()=>navigate('/plannedpackages')}>Planned Holidays</StyledLink></ListItem>
+            <ListItem><StyledLink onClick={()=>navigate('/requestholiday')}>Request Holiday</StyledLink></ListItem>
+            <ListItem><StyledLink onClick={()=>navigate('/events')}>Events</StyledLink></ListItem>
           </LinkList>
         </Section>
 
@@ -179,9 +182,9 @@ const navigate = useNavigate();
             <ListItem><StyledLink onClick={()=>navigate('/contactus')}>Contact Us</StyledLink></ListItem>
             <ListItem><StyledLink onClick={()=>navigate('/blogs')}>Blog</StyledLink></ListItem>
             <ListItem><StyledLink onClick={()=>navigate('/faq')}>FAQ</StyledLink></ListItem>
-            <ListItem><StyledLink href="#">Terms Of Use</StyledLink></ListItem>
-            <ListItem><StyledLink href="#">Privacy Policy</StyledLink></ListItem>
-            <ListItem><StyledLink href="#">Flights</StyledLink></ListItem>
+            {/* <ListItem><StyledLink href="#">Terms Of Use</StyledLink></ListItem> */}
+            {/* <ListItem><StyledLink href="#">Privacy Policy</StyledLink></ListItem> */}
+            {/* <ListItem><StyledLink href="#">Flights</StyledLink></ListItem> */}
           </LinkList>
         </Section>
 

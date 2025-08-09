@@ -253,10 +253,17 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import styled, { keyframes, css } from 'styled-components';
-import h1 from "../Images/h1.jpg"
-import h2 from "../Images/h2.jpg"
-import h3 from "../Images/h3.jpg"
+// import h1 from "../Images/t3.jpg"
+// import h2 from "../Images/h2.jpg"
+// import h3 from "../Images/h3.jpg"
+// import h4 from "../Images/h4.jpg"
+
+
+import h1 from "../Images/t3.jpg"
+import h2 from "../Images2/h2.jpg"
+import h3 from "../Images2/h3.jpg"
 import h4 from "../Images/h4.jpg"
+import { Navigate, useNavigate } from 'react-router-dom';
 
 // Define the fade animation for background images
 const fadeIn = keyframes`
@@ -316,7 +323,7 @@ const BackgroundImage = styled.div`
   width: 100%;
   height: 100%;
   background-size: cover;
-  background-position: center;
+  background-position: top;
   opacity: 0; /* Start hidden */
   transition: opacity 1.5s ease-in-out; /* Smooth fade transition */
   z-index: 1; /* Below the info box and chat button */
@@ -475,6 +482,8 @@ const ChatIcon = styled.span`
 const HeroSection = () => {
   const images = [h1, h2, h3, h4];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+const navigate = useNavigate();
+
 
   // Refs for each text element to observe
   const titleRef = useRef(null);
@@ -545,14 +554,13 @@ const HeroSection = () => {
 
       <InfoBox>
         <Title ref={titleRef} isVisible={isTitleVisible}>
-          Search & Book Cheap Flights
+          Apply For Your Visas
         </Title>
         <Description ref={descriptionRef} isVisible={isDescriptionVisible}>
-          Book cheap and affordable local and international flight deals
-          only on the Harvanna Travels and Tour Ltd Website.
+          Affordably apply for your visas on the Harvanna Travels and Tour Ltd Website.
         </Description>
-        <BookNowButton ref={bookNowButtonRef} isVisible={isBookNowButtonVisible}>
-          BOOK NOW
+        <BookNowButton ref={bookNowButtonRef} isVisible={isBookNowButtonVisible} onClick={()=>navigate('/visa-services')}>
+          APPLY NOW
           <BookNowIcon><i className="fas fa-arrow-right"></i></BookNowIcon>
         </BookNowButton>
       </InfoBox>

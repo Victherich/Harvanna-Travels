@@ -230,7 +230,7 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import styled, { css, keyframes } from 'styled-components';
-import t1 from '../Images/t1.jpg';
+import t1 from '../Images2/h7.jpg';
 import t2 from '../Images/t2.jpg';
 import t3 from '../Images/t3.jpg';
 

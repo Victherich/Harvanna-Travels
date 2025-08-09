@@ -179,7 +179,12 @@
 import React, { useRef, useState, useEffect } from 'react';
 import styled, { css, keyframes } from 'styled-components';
 import SummerHolidayCard from './SummerHolidayCard'; // Make sure this path is correct
-import tour1 from '../Images/tour1.jpeg'
+import tour1 from '../Images2/harva Dubai.jpg'
+import tour2 from '../Images2/harva Doha.jpg'
+import tour3 from '../Images2/harva London.jpg'
+import { Navigate, useNavigate } from 'react-router-dom';
+import { holidayPackages } from './HolidayPackagesArray';
+
 
 // Keyframe for stripes animation (slide in from left)
 const slideInStripes = keyframes`
@@ -340,39 +345,43 @@ const LearnMoreButton = styled.a`
 
 // React Component
 const PopularToursSection = () => {
+const navigate = useNavigate();
+
+
+
   // Define your tour data
-  const tours = [
-    {
-      id: 1,
-      imageSrc: tour1, // Corresponds to image_cc13ee.png
-      title: 'SUMMER IN DUBAI & SEYCHELLES',
-      location: 'DUBAI & SEYCHELLES',
-      duration: '8 Days & 7 Night',
-      price: '₦2,999,999',
-      dateRange: '6th – 14th August 2025',
-      learnMoreLink: '#',
-    },
-    {
-      id: 2,
-      imageSrc: tour1, // Placeholder for Doha image
-      title: 'SUMMER DOHA',
-      location: 'DOHA, QATAR',
-      duration: '5 Days & 4 Night',
-      price: '₦3,210,608',
-      dateRange: '15th - 21st August 2025',
-      learnMoreLink: '#',
-    },
-    {
-      id: 3,
-      imageSrc: tour1, // Placeholder for London image
-      title: 'SUMMER LONDON',
-      location: 'LONDON, UK',
-      duration: '7 Days & 6 Night',
-      price: '₦2,500,000',
-      dateRange: '23rd to 28th August 2025',
-      learnMoreLink: '#',
-    },
-  ];
+  // const tours = [
+  //   {
+  //     id: 1,
+  //     imageSrc: tour1, // Corresponds to image_cc13ee.png
+  //     title: 'SUMMER IN DUBAI & SEYCHELLES',
+  //     location: 'DUBAI & SEYCHELLES',
+  //     duration: '3 Nights Dubai & 4 Nights Seychelles',
+  //     price: '₦2,999,999',
+  //     dateRange: '6th – 14th August 2025',
+  //     learnMoreLink: '#',
+  //   },
+  //   {
+  //     id: 2,
+  //     imageSrc: tour2, // Placeholder for Doha image
+  //     title: 'SUMMER DOHA',
+  //     location: 'DOHA, QATAR',
+  //     duration: '7 Days & 6 Nights',
+  //     price: '₦3,210,608',
+  //     dateRange: '15th - 21st August 2025',
+  //     learnMoreLink: '#',
+  //   },
+  //   {
+  //     id: 3,
+  //     imageSrc: tour3, // Placeholder for London image
+  //     title: 'SUMMER LONDON',
+  //     location: 'LONDON, UK',
+  //     duration: '5 Nights Hotel stay with breakfast',
+  //     price: '₦2,500,000',
+  //     dateRange: '23rd to 28th August 2025',
+  //     learnMoreLink: '#',
+  //   },
+  // ];
 
   // Refs for elements to observe
   const sectionRef = useRef(null);
@@ -387,7 +396,7 @@ const PopularToursSection = () => {
   const [isHeaderStripesVisible, setIsHeaderStripesVisible] = useState(false);
   const [isSectionTitleVisible, setIsSectionTitleVisible] = useState(false);
   const [isSectionSubtitleVisible, setIsSectionSubtitleVisible] = useState(false);
-  const [areCardsVisible, setAreCardsVisible] = useState(tours.map(() => false));
+  const [areCardsVisible, setAreCardsVisible] = useState(holidayPackages.map(() => false));
   const [isLearnMoreButtonVisible, setIsLearnMoreButtonVisible] = useState(false);
 
 
@@ -459,23 +468,23 @@ const PopularToursSection = () => {
       <SectionSubtitle ref={sectionSubtitleRef} $isVisible={isSectionSubtitleVisible}>Choose an attractive tour package.</SectionSubtitle>
 
       <CardsGrid ref={cardsGridRef}>
-        {tours.map((tour, index) => (
+        {holidayPackages.slice(0,3).map((tour, index) => (
           <SummerHolidayCard
             key={tour.id}
-            imageSrc={tour.imageSrc}
+            imageSrc={tour.image}
             title={tour.title}
             location={tour.location}
             duration={tour.duration}
             price={tour.price}
             dateRange={tour.dateRange}
-            learnMoreLink={tour.learnMoreLink}
+            learnMoreLink={`/holidaydetailspage/${tour.id}`}
             ref={el => cardRefs.current[index] = el} // Attach ref to each card
             $isVisible={areCardsVisible[index]} // Pass visibility prop
             style={{ transitionDelay: `${0.6 + index * 0.15}s` }} // Stagger card animations
           />
         ))}
       </CardsGrid>
-      <LearnMoreButton ref={learnMoreButtonRef} $isVisible={isLearnMoreButtonVisible}>
+      <LearnMoreButton ref={learnMoreButtonRef} $isVisible={isLearnMoreButtonVisible} onClick={()=>navigate('/plannedpackages')}>
         SEE ALL TOURS <i className="fas fa-angle-double-right"></i>
       </LearnMoreButton>
     </PopularToursSectionContainer>

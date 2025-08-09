@@ -202,6 +202,7 @@
 
 
 import React from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 // Styled Components
@@ -373,6 +374,8 @@ const SummerHolidayCard = ({
   dateRange,
   learnMoreLink = '#',
 }) => {
+
+  const navigate = useNavigate();
   return (
     <ProductCardContainer>
       <ProductImageWrapper>
@@ -398,8 +401,8 @@ const SummerHolidayCard = ({
 
       <DateDisplay>{dateRange}</DateDisplay>
 
-      <LearnMoreButton href={learnMoreLink}>
-        LEARN MORE <i className="fas fa-angle-double-right"></i> {/* Font Awesome double angle right */}
+      <LearnMoreButton onClick={()=>navigate(learnMoreLink)}>
+        LEARN MORE <i className="fas fa-angle-double-right"></i> 
       </LearnMoreButton>
     </ProductCardContainer>
   );

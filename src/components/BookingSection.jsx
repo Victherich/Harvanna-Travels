@@ -106,6 +106,7 @@
 
 
 import React, { useRef, useState, useEffect } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 import styled, { css, keyframes } from 'styled-components';
 
 // Keyframe for a subtle fade-in and slide-up animation
@@ -278,6 +279,9 @@ const TourIcon = styled.span`
 
 // React Component
 const BookingSection = () => {
+
+  const navigate = useNavigate();
+  
   // Refs for elements to observe
   const sectionRef = useRef(null);
   const startBookingPanelRef = useRef(null);
@@ -340,7 +344,7 @@ const BookingSection = () => {
         Start Your First Booking
       </StartBookingPanel>
       <FindToursPanel ref={findToursPanelRef} $isVisible={isFindToursPanelVisible}>
-        <FindToursButton ref={findToursButtonRef} $isVisible={isFindToursButtonVisible}>
+        <FindToursButton ref={findToursButtonRef} $isVisible={isFindToursButtonVisible} onClick={()=>navigate('/plannedpackages')}>
           FIND TOURS
           <TourIcon ref={tourIconRef} $isVisible={isTourIconVisible}>&#9662;</TourIcon>
         </FindToursButton>

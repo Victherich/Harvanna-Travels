@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import Swal from 'sweetalert2';
 
 // --- Styled Components ---
 const FormContainer = styled.div`
@@ -226,11 +227,67 @@ const CustomizedTourForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log('Form Submitted:', formData);
+  //   // Here you would typically send the formData to a backend server
+  //   alert('Form submitted! Check console for data.');
+  // };
+
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form Submitted:', formData);
-    // Here you would typically send the formData to a backend server
-    alert('Form submitted! Check console for data.');
+
+    Swal.fire({
+      title: 'Submitting Request...',
+      text: 'Please wait while we send your customized tour request.',
+      allowOutsideClick: false,
+      didOpen: () => Swal.showLoading()
+    });
+
+    try {
+      const response = await fetch('https://harvannatravelsandtour.com/api/customized_tour_endpoint.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Request Sent!',
+          text: result.message,
+        });
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          choiceOfCountry: '',
+          numAdults: 0,
+          numChildren: 0,
+          numInfants: 0,
+          departureLocation: '',
+          departureDate: '',
+          returnDate: '',
+          additionalInfo: '',
+        });
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: result.error,
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Network Error',
+        text: 'Unable to send your request. Please try again later.',
+      });
+    }
   };
 
   return (
