@@ -7,6 +7,7 @@ import { Fade } from 'react-awesome-reveal';
 // import { visaServices } from './visaServicesData';
 import { visaServices } from './VisaServicesData';
 import Swal from 'sweetalert2';
+import PaymentComponent from './PaymentComponent';
 
 // --- Styled Components for the Page ---
 const DetailsContainer = styled.div`
@@ -381,6 +382,7 @@ const VisaServiceDetails = () => {
       </Fade>
 
       <VisaApplicationForm visaTitle={title} />
+      <PaymentComponent/>
     </DetailsContainer>
   );
 };

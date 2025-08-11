@@ -159,9 +159,7 @@ const navigate = useNavigate();
             {/* <LogoText>Aspom</LogoText> */}
           </LogoContainer>
           <p>
-            Harvanna Travels and Tour Ltd Agency was founded on the 2nd of February, 2012 and has remained at the top of its
-            game providing visa assistants, hotels, holiday packages, tours and flight deals to her clients.
-          </p>
+           Harvanna Travels and Tour Ltd is a premier international travel agency and recruitment service dedicated to providing exceptional travel experiences and job placement services worldwide. </p>
         </CompanyDescription>
 
         <Section>
@@ -192,15 +190,15 @@ const navigate = useNavigate();
           <SectionTitle>Our Office</SectionTitle>
           <ContactInfo>
             <Icon><i className="fas fa-map-marker-alt"></i></Icon> {/* Font Awesome icon */}
-            <span>4th Floor Brasas's Place, 69 Admiralty Way, Lekki Phase 1, Lagos</span>
+            <span>Plot 111/113, Destiny Plaza, Opposite Marcity B/Stop, Ago Palace Way, Okota Lagos State.</span>
           </ContactInfo>
           <ContactInfo>
             <Icon><i className="fas fa-envelope"></i></Icon> {/* Font Awesome icon */}
-            <StyledLink href="mailto:info@aspomtravels.com">info@aspomtravels.com</StyledLink>
+            <StyledLink href="mailto:info@aspomtravels.com">info@harvannatravelsandtour.com</StyledLink>
           </ContactInfo>
           <ContactInfo>
             <Icon><i className="fas fa-phone"></i></Icon> {/* Font Awesome icon */}
-            <span>+234-816-654-9711</span>
+            <span>+234-8123456789</span>
           </ContactInfo>
         </Section>
       </FooterContent>
@@ -213,7 +211,10 @@ const navigate = useNavigate();
           <SocialIcon href="#"><i className="fab fa-instagram"></i></SocialIcon>
           <SocialIcon href="#"><i className="fab fa-linkedin-in"></i></SocialIcon>
         </SocialIcons>
-        <span>Copyright © 2012 - 2025 Harvanna Travels and Tour Ltds. All rights reserved.</span>
+      <span>
+  Copyright © {new Date().getFullYear()} Harvanna Travels and Tour Ltd. All rights reserved.
+</span>
+
         {/* <SettingsLink>
           <a href="#">Powered by Elexdon Technologies Limited</a>
         </SettingsLink> */}

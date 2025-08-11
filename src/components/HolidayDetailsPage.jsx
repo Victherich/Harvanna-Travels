@@ -8,6 +8,7 @@ import { Fade } from 'react-awesome-reveal';
 
 import { holidayPackages } from './HolidayPackagesArray';
 import HolidayApplicationForm from './HolidayApplicationForm';
+import PaymentComponent from './PaymentComponent';
 
 // Styled Components
 const HolidayDetailsContainer = styled.div`
@@ -187,6 +188,8 @@ const HolidayDetailsPage = () => {
         </BenefitsSection>
       </Fade>
       <HolidayApplicationForm holidayTitle={holiday.title}/>
+
+      <PaymentComponent/>
     </HolidayDetailsContainer>
   );
 };
