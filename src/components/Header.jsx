@@ -172,9 +172,9 @@
 //   return (
 //     <NavbarContainer>
 //       <LogoContainer>
-//         {/* Replace 'path/to/your/logo.png' with the actual path to your Aspom logo image */}
-//         <LogoImage src={logo} alt="Aspom Logo" />
-//         {/* <LogoText>Aspom</LogoText> */}
+//         {/* Replace 'path/to/your/logo.png' with the actual path to your Harvanna Travels and Tour Ltd logo image */}
+//         <LogoImage src={logo} alt="Harvanna Travels and Tour Ltd Logo" />
+//         {/* <LogoText>Harvanna Travels and Tour Ltd</LogoText> */}
 //       </LogoContainer>
 
 //       <HamburgerMenu onClick={toggleNav}>
@@ -221,6 +221,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import logo from '../Images2/Harvanna Logo.jpg'
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 // --- Styled Components ---
 const NavbarContainer = styled.nav`
@@ -442,11 +443,19 @@ const Header = () => {
     setIsNavOpen(!isNavOpen);
   };
 
+  const handleComingSoon = ()=>{
+    Swal.fire({
+      title:"Coming soon...",
+      icon:"info",
+      timer:1000
+    })
+  }
+
   return (
     <NavbarContainer>
       <LogoContainer onClick={()=>navigate('/')}>
-        <LogoImage src={logo} alt="Aspom Logo" />
-        {/* <LogoText>Aspom</LogoText> */}
+        <LogoImage src={logo} alt="Harvanna Logo" />
+        
       </LogoContainer>
 
       <HamburgerMenu onClick={toggleNav}>
@@ -459,9 +468,9 @@ const Header = () => {
         <NavItem onClick={() => {navigate('/');setIsNavOpen(false)}}>
           <NavLink>HOME</NavLink>
         </NavItem>
-        {/* <NavItem>
-          <NavLink href="#">FLIGHTS</NavLink>
-        </NavItem> */}
+        <NavItem>
+          <NavLink onClick={() => {handleComingSoon();setIsNavOpen(false)}}>FLIGHTS</NavLink>
+        </NavItem>
 
         {/* HOLIDAYS Dropdown */}
         <NavItem>
@@ -508,12 +517,17 @@ const Header = () => {
         <NavItem onClick={() => {navigate('/blogs');setIsNavOpen(false)}}>
           <NavLink>BLOG</NavLink>
         </NavItem>
+        <NavItem onClick={() => {navigate('/bookappointment');setIsNavOpen(false)}}>
+          <NavLink>BOOK APPOINTMENT</NavLink>
+        </NavItem>
       </NavLinks>
 
       <IconsContainer>
         {/* <SearchIcon><i className="fas fa-search"></i></SearchIcon> */}
-        <ChatButton>Chat<br/>Whatsapp</ChatButton>
-      </IconsContainer>
+       <ChatButton onClick={() => window.open('https://wa.me/2347075603404', "_blank")}>
+  Chat<br />Whatsapp
+</ChatButton>
+</IconsContainer>
     </NavbarContainer>
   );
 };

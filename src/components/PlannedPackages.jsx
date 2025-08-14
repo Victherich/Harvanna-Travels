@@ -178,7 +178,7 @@
 //   {
 //     id: 1, // Unique ID for React key prop
 //     promoImage: harvaDubai, // Corresponds to image_df5b27.png / image_b49884.png
-//     logo: 'https://via.placeholder.com/80x30/FFFFFF/000000?text=Aspom', // Placeholder for Aspom logo
+//     logo: 'https://via.placeholder.com/80x30/FFFFFF/000000?text=Harvanna Travels and Tour Ltd', // Placeholder for Harvanna Travels and Tour Ltd logo
 //     title: 'Relocate to Canada',
 //     rating: 5, // 5 stars as seen in the image
 //     feeAmount: 390000, // N390,000
@@ -187,7 +187,7 @@
 //   {
 //     id: 2,
 //     promoImage: harvaDoha, // Placeholder for another relocation service
-//     logo: 'https://via.placeholder.com/80x30/FFFFFF/000000?text=Aspom',
+//     logo: 'https://via.placeholder.com/80x30/FFFFFF/000000?text=Harvanna Travels and Tour Ltd',
 //     title: 'Relocate to Australia',
 //     rating: 4, // Example rating
 //     feeAmount: 550000,

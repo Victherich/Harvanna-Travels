@@ -452,17 +452,17 @@ const ContactUsPage = () => {
             <OfficeTitle>We'd Love to See You On-board</OfficeTitle>
             <ContactDetail>
               <i className="fas fa-map-marker-alt"></i>
-              <span>4th Floor Brasas's Place, 69 Admiralty Way, Lekki Phase 1 100242, Lagos</span>
+              <span>Plot 111/113, Destiny Plaza, Opposite Marcity B/Stop, Ago Palace Way, Okota Lagos State.</span>
             </ContactDetail>
             <ContactDetail>
               <i className="fas fa-phone"></i>
               <span>
-                <a href="tel:+2349082212663">+234 908 221 2663</a>, <a href="tel:+2348172699697">+234 817 269 9697</a>
-              </span>
+                <a href="tel:+2347075603404">+234 707 560 3404</a>,
+                              </span>
             </ContactDetail>
             <ContactDetail>
               <i className="fas fa-envelope"></i>
-              <a href="mailto:holidays@aspomtravels.com">holidays@aspomtravels.com</a>
+              <a href="mailto:info@harvannatravelsandtour.com">info@harvannatravelsandtour.com</a>
             </ContactDetail>
           </OfficeInfo>
         </OfficeContentWrapper>

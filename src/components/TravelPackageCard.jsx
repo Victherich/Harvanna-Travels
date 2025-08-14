@@ -52,7 +52,7 @@
 // `;
 
 // const ImageLogo = styled.img`
-//   width: 90px; /* Size of the Aspom logo */
+//   width: 90px; /* Size of the Harvanna Travels and Tour Ltd logo */
 //   height: auto;
 //   position: absolute; /* Position relative to ImageSection */
 //   top: 15px;
@@ -205,7 +205,7 @@
 // // --- React Component: FeaturedPackageCard ---
 // const TravelPackageCard = ({
 //   image,
-//   logo, // Path to Aspom logo
+//   logo, // Path to Harvanna Travels and Tour Ltd logo
 //   title,
 //   description,
 //   rating, // e.g., 5 for 5 stars
@@ -234,7 +234,7 @@
 //   return (
 //     <FeaturedCardContainer>
 //       <ImageSection> {/* Use transient prop for styled-components */}
-//         {logo && <ImageLogo src={logo} alt="Aspom Logo" />}
+//         {logo && <ImageLogo src={logo} alt="Harvanna Travels and Tour Ltd Logo" />}
 //         <img src={image} alt='bg'/>
 //       </ImageSection>
 //       <DetailsSection>
@@ -320,7 +320,7 @@ width:40%;
 `;
 
 const ImageLogo = styled.img`
-  width: 90px; /* Size of the Aspom logo */
+  width: 90px; /* Size of the Harvanna Travels and Tour Ltd logo */
   height: auto;
   position: absolute; /* Position relative to ImageSection */
   top: 15px;
@@ -473,7 +473,7 @@ const ExploreButton = styled.a`
 // --- React Component: FeaturedPackageCard ---
 const TravelPackageCard = ({
   image,
-  logo, // Path to Aspom logo
+  logo, // Path to Harvanna Travels and Tour Ltd logo
   title,
   description,
   rating, // e.g., 5 for 5 stars
@@ -504,7 +504,7 @@ const TravelPackageCard = ({
   return (
     <FeaturedCardContainer>
       <ImageSection> {/* Use transient prop for styled-components */}
-        {logo && <ImageLogo src={logo} alt="Aspom Logo" />}
+        {logo && <ImageLogo src={logo} alt="Harvanna Travels and Tour Ltd Logo" />}
         <img src={image} alt='bg'/>
       </ImageSection>
       <DetailsSection>

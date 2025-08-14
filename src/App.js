@@ -18,6 +18,7 @@ import FAQPage from './components/Faq';
 import HolidayDetailsPage from './components/HolidayDetailsPage';
 import VisaServiceDetails from './components/VisaServiceDetails';
 import VisaServicesPage from './components/VisaServicesPage';
+import AppointmentBookingPage from './components/AppointmentBookingPage';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
     <Route path='/holidaydetailspage/:id' element={<HolidayDetailsPage/>}/>
     <Route path='/visa-services/:id' element={<VisaServiceDetails/>}/>
     <Route path='/visa-services' element={<VisaServicesPage/>}/>
+    <Route path='/bookappointment' element={<AppointmentBookingPage/>}/>
    </Routes>
    <Footer/>
    </BrowserRouter>

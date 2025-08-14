@@ -198,8 +198,8 @@
 //         <TestimonialTitle>Truly memorable and exciting tours.</TestimonialTitle>
 //         <TestimonialText>
 //           Harvanna Travels and Tour Ltds has been my family’s go to for both business and family vacations. This is one of the
-//           most experienced travel agency in Nigeria. Our last trip to Dubai was so exciting. I recommend Aspom
-//           Travels.
+//           most experienced travel agency in Nigeria. Our last trip to Dubai was so exciting. I recommend Harvanna Travels and Tour Ltd
+//           .
 //         </TestimonialText>
 //         <Attribution>- Ethan Johnson & Family</Attribution>
 //         <Location>Dubai Tour</Location>
@@ -622,8 +622,7 @@ const CustomerTestimonial = () => {
         <TestimonialTitle ref={testimonialTitleRef} $isVisible={isTestimonialTitleVisible}>Truly memorable and exciting tours.</TestimonialTitle>
         <TestimonialText ref={testimonialTextRef} $isVisible={isTestimonialTextVisible}>
           Harvanna Travels and Tour Ltds has been my family’s go to for both business and family vacations. This is one of the
-          most experienced travel agency in Nigeria. Our last trip to Dubai was so exciting. I recommend Aspom
-          Travels.
+          most experienced travel agency in Nigeria. Our last trip to Dubai was so exciting. I recommend Harvanna Travels and Tour Ltd.
         </TestimonialText>
         <Attribution ref={attributionRef} $isVisible={isAttributionVisible}>- Ethan Johnson & Family</Attribution>
         <Location ref={locationRef} $isVisible={isLocationVisible}>Dubai Tour</Location>

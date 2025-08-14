@@ -30,18 +30,20 @@ const fadeOut = keyframes`
 const HeroSectionContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 300px; /* Adjust height as needed to match the image */
+  height: 400px; /* Adjust height as needed to match the image */
   overflow: hidden; /* Hide overflow from images */
   display: flex;
   align-items: center;
   justify-content: flex-start; /* Align content to the left */
   padding-left: 10%; /* Adjust padding for content positioning */
+  padding-right:10%;
   box-sizing: border-box; /* Include padding in element's total width and height */
   padding-top:5%;
 
   @media (max-width: 1024px) {
     height: 500px;
     padding-left: 5%;
+    padding-right:5%;
   }
 
   @media (max-width: 768px) {
@@ -79,10 +81,11 @@ const InfoBox = styled.div`
   background-color:rgba(0,0,0,0.5); /* Yellow background */
   padding: 30px 40px;
   border-radius: 8px;
-  max-width: 550px; /* Adjust width as needed */
+  // max-width: 550px; /* Adjust width as needed */
   text-align: left;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
   z-index: 2; /* Above background images */
+    width:100%;
 
   @media (max-width: 768px) {
     padding: 25px 30px;
@@ -227,10 +230,10 @@ h1
 
       <InfoBox>
         <Title>Harvanna Travels and Tour Ltds Services</Title>
-        {/* <Description>
-          Book cheap and affordable local and international flight deals
-          only on the Harvanna Travels and Tour Ltd Website.
-        </Description> */}
+        <Title style={{fontSize:"1.4rem"}}>Let's be your Travel Agent</Title>
+        <Description>
+          Let us take you around the world without stress
+        </Description>
     
       </InfoBox>
 

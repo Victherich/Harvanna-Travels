@@ -264,6 +264,7 @@ import h2 from "../Images2/h2.jpg"
 import h3 from "../Images2/h3.jpg"
 import h4 from "../Images/h4.jpg"
 import { Navigate, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 // Define the fade animation for background images
 const fadeIn = keyframes`
@@ -542,6 +543,15 @@ const navigate = useNavigate();
     };
   }, []); // Empty dependency array means this effect runs once after the initial render
 
+  
+    const handleComingSoon = ()=>{
+      Swal.fire({
+        title:"Coming soon...",
+        icon:"info",
+        timer:1000
+      })
+    }
+  
   return (
     <HeroSectionContainer>
       {images.map((image, index) => (
@@ -554,21 +564,21 @@ const navigate = useNavigate();
 
       <InfoBox>
         <Title ref={titleRef} isVisible={isTitleVisible}>
-          Apply For Your Visas
+          Search & Book Cheap Flights
         </Title>
         <Description ref={descriptionRef} isVisible={isDescriptionVisible}>
-          Affordably apply for your visas on the Harvanna Travels and Tour Ltd Website.
+          Book cheap and affordable local and international flight deals only on the Harvanna Travels and Tour Ltd Website.
         </Description>
-        <BookNowButton ref={bookNowButtonRef} isVisible={isBookNowButtonVisible} onClick={()=>navigate('/visa-services')}>
-          APPLY NOW
+        <BookNowButton ref={bookNowButtonRef} isVisible={isBookNowButtonVisible} onClick={handleComingSoon}>
+          BOOK NOW
           <BookNowIcon><i className="fas fa-arrow-right"></i></BookNowIcon>
         </BookNowButton>
       </InfoBox>
 
-      <ChatButton ref={chatButtonRef} isVisible={isChatButtonVisible} href="#">
+      {/* <ChatButton ref={chatButtonRef} isVisible={isChatButtonVisible} href="#">
         <ChatIcon><i className="fab fa-whatsapp"></i></ChatIcon>
         CHAT
-      </ChatButton>
+      </ChatButton> */}
     </HeroSectionContainer>
   );
 };
