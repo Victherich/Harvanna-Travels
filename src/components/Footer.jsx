@@ -169,6 +169,7 @@ const navigate = useNavigate();
             <ListItem><StyledLink onClick={()=>navigate('/plannedpackages')}>Planned Holidays</StyledLink></ListItem>
             <ListItem><StyledLink onClick={()=>navigate('/requestholiday')}>Request Holiday</StyledLink></ListItem>
             <ListItem><StyledLink onClick={()=>navigate('/events')}>Events</StyledLink></ListItem>
+            <ListItem><StyledLink onClick={()=>navigate('/payments')}>Payments</StyledLink></ListItem>
           </LinkList>
         </Section>
 

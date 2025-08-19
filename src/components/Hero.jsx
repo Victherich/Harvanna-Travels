@@ -569,7 +569,7 @@ const navigate = useNavigate();
         <Description ref={descriptionRef} isVisible={isDescriptionVisible}>
           Book cheap and affordable local and international flight deals only on the Harvanna Travels and Tour Ltd Website.
         </Description>
-        <BookNowButton ref={bookNowButtonRef} isVisible={isBookNowButtonVisible} onClick={handleComingSoon}>
+        <BookNowButton ref={bookNowButtonRef} isVisible={isBookNowButtonVisible} onClick={()=>navigate('/flights')}>
           BOOK NOW
           <BookNowIcon><i className="fas fa-arrow-right"></i></BookNowIcon>
         </BookNowButton>

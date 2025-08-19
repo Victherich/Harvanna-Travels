@@ -179,7 +179,7 @@ const payWithPaystack = () => {
       Swal.fire({
         icon: 'success',
         title: 'Payment Successful',
-        text: 'An email receipt has been sent to you.',
+        text: 'An email receipt has been sent to you. Please check your inbox or spam folder.',
         confirmButtonColor: '#3085d6',
       });
     },

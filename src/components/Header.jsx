@@ -469,7 +469,7 @@ const Header = () => {
           <NavLink>HOME</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink onClick={() => {handleComingSoon();setIsNavOpen(false)}}>FLIGHTS</NavLink>
+          <NavLink onClick={() => {navigate('/flights');setIsNavOpen(false)}}>FLIGHTS</NavLink>
         </NavItem>
 
         {/* HOLIDAYS Dropdown */}

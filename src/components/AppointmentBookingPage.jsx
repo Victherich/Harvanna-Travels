@@ -226,7 +226,7 @@ const AppointmentBookingPage = () => {
     const paystack = new PaystackPop();
     paystack.newTransaction({
       key: 'pk_live_64a5f718f2e9bfe267d3c4a93c2b8a90e66b915a',
-    //   key: 'pk_test_41a396ef9a4f9c53cf4f1139cc7e7002fc085f55',
+      // key: 'pk_test_41a396ef9a4f9c53cf4f1139cc7e7002fc085f55',
       amount: Number(formData.amount) * 100, // in kobo
       email: formData.email,
       firstname: formData.name,

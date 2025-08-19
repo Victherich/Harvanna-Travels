@@ -19,6 +19,9 @@ import HolidayDetailsPage from './components/HolidayDetailsPage';
 import VisaServiceDetails from './components/VisaServiceDetails';
 import VisaServicesPage from './components/VisaServicesPage';
 import AppointmentBookingPage from './components/AppointmentBookingPage';
+import FlightPage from './components/FlightPage';
+import PaymentComponent from './components/PaymentComponent';
+import PaymentPage from './components/PaymentPage';
 
 function App() {
   return (
@@ -43,6 +46,8 @@ function App() {
     <Route path='/visa-services/:id' element={<VisaServiceDetails/>}/>
     <Route path='/visa-services' element={<VisaServicesPage/>}/>
     <Route path='/bookappointment' element={<AppointmentBookingPage/>}/>
+    <Route path='/flights' element={<FlightPage/>}/>
+    <Route path='/payments' element={<PaymentPage/>}/>
    </Routes>
    <Footer/>
    </BrowserRouter>

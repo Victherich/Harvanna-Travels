@@ -144,8 +144,8 @@ const AnswerContent = styled.div`
 const faqData = [
   {
     id: '1',
-    question: 'How do I book a tour package with Harana Travels?',
-    answer: 'Booking with Harana Travels is easy! You can browse our tour packages on our website and use the "Book Now" or "Inquire" button, call our customer service hotline, or visit our office. Our team will guide you through the process, from selecting the right package to completing your payment.'
+    question: 'How do I book a tour package with Harvanna Travels?',
+    answer: 'Booking with Harvanna Travels is easy! You can browse our tour packages on our website and use the "Book Now" or "Inquire" button, call our customer service hotline, or visit our office. Our team will guide you through the process, from selecting the right package to completing your payment.'
   },
   {
     id: '2',
@@ -155,7 +155,7 @@ const faqData = [
   {
     id: '3',
     question: 'Can I customize a tour package to fit my preferences?',
-    answer: 'Absolutely! Harana Travels specializes in crafting personalized travel experiences. We encourage you to discuss your interests, budget, and desired destinations with our travel consultants. We can tailor itineraries, accommodate specific activities, and adjust accommodation to create your perfect trip.'
+    answer: 'Absolutely! Harvanna Travels specializes in crafting personalized travel experiences. We encourage you to discuss your interests, budget, and desired destinations with our travel consultants. We can tailor itineraries, accommodate specific activities, and adjust accommodation to create your perfect trip.'
   },
   {
     id: '4',
