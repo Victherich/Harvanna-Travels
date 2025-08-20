@@ -472,6 +472,10 @@ const Header = () => {
           <NavLink onClick={() => {navigate('/flights');setIsNavOpen(false)}}>FLIGHTS</NavLink>
         </NavItem>
 
+           <NavItem>
+          <NavLink onClick={() => {navigate('/hotels');setIsNavOpen(false)}}>HOTELS</NavLink>
+        </NavItem>
+
         {/* HOLIDAYS Dropdown */}
         <NavItem>
           <NavLink href="#">

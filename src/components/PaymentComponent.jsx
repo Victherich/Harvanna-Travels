@@ -164,6 +164,8 @@ const payWithPaystack = () => {
     },
   });
 
+
+  
   const paystack = new PaystackPop();
   paystack.newTransaction({
     // key: 'pk_test_41a396ef9a4f9c53cf4f1139cc7e7002fc085f55',

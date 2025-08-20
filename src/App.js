@@ -22,6 +22,11 @@ import AppointmentBookingPage from './components/AppointmentBookingPage';
 import FlightPage from './components/FlightPage';
 import PaymentComponent from './components/PaymentComponent';
 import PaymentPage from './components/PaymentPage';
+import HotelBookingPage from './components/HotelBookingPage';
+import ManageHotels from './components/ManageHotels';
+import HotelDetail from './components/HotelDetail';
+import HotelsPage from './components/HotelsPage';
+
 
 function App() {
   return (
@@ -48,6 +53,9 @@ function App() {
     <Route path='/bookappointment' element={<AppointmentBookingPage/>}/>
     <Route path='/flights' element={<FlightPage/>}/>
     <Route path='/payments' element={<PaymentPage/>}/>
+    <Route path='/hotels' element={<HotelsPage/>}/>
+    <Route path='/managehotels' element={<ManageHotels/>}/>
+    <Route path='/hoteldetail/:id' element={<HotelDetail/>}/>
    </Routes>
    <Footer/>
    </BrowserRouter>
