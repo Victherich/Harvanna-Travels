@@ -26,6 +26,12 @@ import HotelBookingPage from './components/HotelBookingPage';
 import ManageHotels from './components/ManageHotels';
 import HotelDetail from './components/HotelDetail';
 import HotelsPage from './components/HotelsPage';
+import PrivateAdminDashboard from './components/PrivateAdminDashboard';
+import AdminDashboard from './components/AdminDashborad';
+import AdminLogin from './components/AdminLogin';
+import AdminSignup from './components/AdminSignUp';
+import AdminForgotPassword from './components/AdminForgotPassword';
+import AdminResetPassword from './components/AdminResetPassword';
 
 
 function App() {
@@ -54,8 +60,19 @@ function App() {
     <Route path='/flights' element={<FlightPage/>}/>
     <Route path='/payments' element={<PaymentPage/>}/>
     <Route path='/hotels' element={<HotelsPage/>}/>
-    <Route path='/managehotels' element={<ManageHotels/>}/>
+    {/* <Route path='/managehotels' element={<ManageHotels/>}/> */}
     <Route path='/hoteldetail/:id' element={<HotelDetail/>}/>
+
+
+{/* dashboard routes */}
+    <Route path='/admindashboard' element={<PrivateAdminDashboard/>}>
+        <Route path='' element={<AdminDashboard/>}/>
+    </Route>
+<Route path='/adminlogin' element={<AdminLogin/>}/>
+{/* <Route path='/adminsignup' element={<AdminSignup/>}/> */}
+<Route path='/adminforgotpassword' element={<AdminForgotPassword/>}/>
+<Route path='/adminresetpassword/:token' element={<AdminResetPassword/>}/>
+
    </Routes>
    <Footer/>
    </BrowserRouter>

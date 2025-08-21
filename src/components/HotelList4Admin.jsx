@@ -8,13 +8,15 @@ import { useNavigate } from "react-router-dom";
 // Styled Components
 const Container = styled.div`
   max-width: 1000px;
-  margin: 50px auto;
+  margin: 0px auto;
+  padding:20px;
 `;
 
 const HotelGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
+  
 `;
 
 const Card = styled.div`
